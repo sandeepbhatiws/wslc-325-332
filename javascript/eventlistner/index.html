@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <title>Title</title>
+   </head>
+           
+   <body>
+        <button id="submit">Submit</button>
+        <button id="clickme" title="Click">Click Me</button>
+   </body>
+    
+   <script>
+    function getData(){
+        console.log('Hello');
+    }
+
+    document.getElementById('submit').addEventListener('click',getData);
+    // document.getElementById('clickme').addEventListener('click',getData);
+
+    document.getElementById('clickme').addEventListener('click',(e) => {
+        console.log(e.target.innerText);
+        console.log(e.target.title);
+    });
+   </script>
+</html>

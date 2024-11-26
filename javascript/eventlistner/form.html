@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <title>Title</title>
+   </head>
+           
+   <body>
+        <form id="submit">
+            <input type="text" name="uname"/>
+            <button>Submit</button>
+        </form>
+   </body>
+    
+   <script>
+
+    document.getElementById('submit').addEventListener('submit',(event) => {
+        event.preventDefault();
+        console.log(event.target.uname.value);
+        // event.target.uname.value = '';
+
+        event.target.reset();
+    });
+
+   </script>
+</html>

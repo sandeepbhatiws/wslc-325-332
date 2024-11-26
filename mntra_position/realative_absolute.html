@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Relative Absolute Property</title>
+	<style type="text/css">
+		.outer{
+			width: 1400px;
+			margin: auto;
+			display: flex;
+			justify-content: space-between;
+		}
+		.gallery{
+			flex-grow: 1;
+			margin: 15px;
+			border:1px solid red;
+			position: relative;
+			overflow: hidden;
+		}
+		.gallery img{
+			width: 100%;
+		}
+		.gallery-content{
+			text-align: center;
+			position: absolute;
+			top: 0px;
+			color: white;
+			background-color: rgba(0,0,0,0.4);
+			padding-top: 0px;
+			box-sizing: border-box;
+			line-height: 40px;
+			width: 100%;
+			height: 100%;
+			/*display: none;*/
+			opacity: 0;
+			transition: 2s;
+		}
+		.gallery-border{
+			padding: 5px;
+			background-color: blue;
+			width: 100%;
+			box-sizing: border-box;
+			position: absolute;
+			bottom: -15px;
+			transition: 2s;
+			/*display: none;*/
+		}
+		/*.gallery:hover .gallery-box{
+			display: none;
+		}*/
+		.gallery:hover .gallery-content{
+			/*display: block;*/
+			opacity: 1;
+			padding-top: 140px;
+		}
+		.gallery:hover .gallery-border{
+			/*display: block;*/
+			bottom: 0px;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div style="height: 200px; width: 100%;"></div> -->
+	<div class="outer">
+		<div class="gallery">
+			<div class="gallery-box">
+				<img src="gallery/gallery-tn-01.jpg">
+			</div>
+			<div class="gallery-content">
+				<h2>SECOND HONEY NOW</h2>
+			</div>
+			<div class="gallery-border"></div>
+		</div>
+		<div class="gallery">
+			<div class="gallery-box">
+				<img src="gallery/gallery-tn-01.jpg">
+			</div>
+			<div class="gallery-content">
+				<h2>SECOND HONEY NOW</h2>
+			</div>
+			<div class="gallery-border"></div>
+		</div>
+		<div class="gallery">
+			<div class="gallery-box">
+				<img src="gallery/gallery-tn-01.jpg">
+			</div>
+			<div class="gallery-content">
+				<h2>SECOND HONEY NOW</h2>
+			</div>
+			<div class="gallery-border"></div>
+		</div>
+		<div class="gallery">
+			<div class="gallery-box">
+				<img src="gallery/gallery-tn-01.jpg">
+			</div>
+			<div class="gallery-content">
+				<h2>SECOND HONEY NOW</h2>
+			</div>
+			<div class="gallery-border"></div>
+		</div>
+		<div class="gallery">
+			<div class="gallery-box">
+				<img src="gallery/gallery-tn-01.jpg">
+			</div>
+			<div class="gallery-content">
+				<h2>SECOND HONEY NOW</h2>
+			</div>
+			<div class="gallery-border"></div>
+		</div>
+	</div>
+</body>
+</html>

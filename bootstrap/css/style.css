@@ -1,0 +1,21 @@
+*{
+	text-decoration: none;	
+}
+.row{
+	width: 100%;
+}
+.rowinside{
+	max-width: 1400px;
+	margin: auto;
+	display: flex;
+	gap: 15px;
+	padding: 15px;
+}
+.column{
+	border: 1px solid gray;
+	padding: 15px;
+	border-radius: 15px;
+}
+.test{
+	background-color: darkred;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Promise</title>
+        <style>
+            *{
+                padding: 0px;
+                margin: 0px;
+                text-decoration: none;
+            }
+            .row{
+                width: 1400px;
+                border: 0px solid red;
+                margin: auto;
+            }
+            .heading{
+                text-align: center;
+                padding: 30px;
+            }
+            .products{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .product-box{
+                flex-basis: 23%;
+                margin: 1%;
+                box-shadow: 0px 0px 5px 1px gray;
+                text-align: center;
+            }
+            .product_image img {
+                width: 100%;
+            }
+            .product_section{
+                padding: 15px;
+            }
+            .product_section h2{
+                padding-bottom: 15px;
+            }
+            .product_section p{
+                line-height: 26px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="heading">
+                <h1>Product Listings</h1>
+            </div>
+            <div class="products" id="products">
+            </div>
+        </div>
+    </body>
+    <script>
+        var allProducts = [];
+
+        var productsData = async () => {
+            const product = await fetch('https://dummyjson.com/products?limit=32&skip=32');
+            const results = await product.json();
+            console.log(results.products);
+            products(results.products)
+        }
+
+        productsData();
+
+    function products(allProducts){
+        var final = '';
+        allProducts.forEach((value,index) => {
+
+            // final += '<div class="product-box"><div class="product_image"><img src="'+ value.thumbnail +'" /></div><div class="product_section"><h2>'+ value.title +'</h2><p>'+ value.description +'</p></div></div>';
+
+            final += `<div class="product-box">
+                <div class="product_image">
+                    <img src="${ value.thumbnail }" />
+                </div>
+                <div class="product_section">
+                    <h2>${ value.title }</h2>
+                    <p>${ value.description }</p>
+                </div>
+            </div>`;
+
+        });
+
+        document.getElementById('products').innerHTML = final;
+
+    }
+
+    </script>
+</html>

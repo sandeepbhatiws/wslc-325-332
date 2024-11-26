@@ -1,0 +1,20 @@
+
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+	
+}
+
+@media only screen and (min-width: 427px) and (max-width: 768px){
+	
+}
+
+@media only screen and (min-width: 0px) and (max-width: 426px){
+	.row{
+		flex-direction: column;
+	}
+	.header_left{
+		margin-bottom: 10px;
+	}
+	.header_right{
+		display: none;
+	}
+}

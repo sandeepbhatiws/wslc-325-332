@@ -1,0 +1,26 @@
+<html lang="en" dir="ltr">
+   <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <title>Arguments Functions</title>
+   </head>
+           
+   <body>
+           <button onclick="result(10,20)">Click Me</button>
+   </body>
+   <script>
+        function addition(i,k){
+            c = i+k;
+            return c;
+        }
+
+        function result(a,b){
+            sum = addition(a,b);
+            output = sum*5;
+            console.log(output);
+        }
+
+        result(10,15);
+    </script>
+</html>

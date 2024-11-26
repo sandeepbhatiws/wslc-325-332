@@ -1,0 +1,60 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+}
+
+body{
+	font-family: arial;
+}
+
+.outer{
+	width: 100%;
+}
+.row1{
+	background-image: url('../images/spotlight-bg.webp');
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: cover;
+	width: 100%;
+	border: 0px solid red;
+	box-sizing: border-box;
+	padding: 70px;
+}
+.heading{
+	color: white;
+	text-align: center;
+	width: 1320px;
+	margin: auto;
+}
+.heading h1{
+	padding-bottom: 20px;
+	font-size: 45px;
+}
+.heading p{
+	font-size: 18px;
+}
+.heading_content{
+	width: 1320px;
+	margin: auto;
+	border: 0px solid red;
+	color: white;
+	margin-top: 20px;
+	/*height: 400px;*/
+}
+.heading_column{
+	float: left;
+	border:0px solid black;
+	width: 25%;
+	text-align: center;
+}
+.clear{
+	clear: both;
+}
+.heading_column h2{
+	padding-bottom: 30px;
+}
+.border{
+	border-right: 2px solid gray;
+	box-sizing: border-box;
+}

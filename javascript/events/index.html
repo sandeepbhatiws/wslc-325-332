@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+       <title>Events</title>
+   </head>
+           
+   <body>
+        <!-- <button onclick="dataList()">Submit</button> -->
+        <!-- <button ondblclick="dataList()">Submit</button> -->
+        <!-- <button onmouseover="dataList()" onmouseout="dataList()" onmousewheel="dataList()">Submit</button> -->
+        <!-- <button onmousedown="dataList()" onmouseup="dataList()">Submit</button> -->
+        <!-- <button onmousemove="dataList()">Submit</button> -->
+
+        <!-- <input type="text" id="name" onkeydown="dataList()"> -->
+        <input type="text" id="name" onchange="dataList()">
+        <!-- <input type="text" id="user_name" onkeyup="dataList2()"> -->
+   </body>
+   <script>
+        function dataList(){
+            console.log(document.getElementById('name').value);
+        }
+        function dataList2(){
+            console.log(document.getElementById('user_name').value);
+        }
+   </script>
+           
+</html>

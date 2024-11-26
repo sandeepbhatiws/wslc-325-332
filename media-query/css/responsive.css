@@ -1,0 +1,26 @@
+
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+	.column{
+		flex-basis: 30%;
+		margin: 1.5%;
+	}
+}
+
+@media only screen and (min-width: 427px) and (max-width: 768px){
+	.column{
+		flex-basis: 48%;
+		margin: 1%;
+	}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 426px){
+	.row{
+		flex-direction: column;
+	}
+	.column{
+		margin-bottom: 15px;
+	}
+	.content h2{
+		font-size: 18px;
+	}
+}

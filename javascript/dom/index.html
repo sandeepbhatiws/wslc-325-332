@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>DOM Properties</title>
+        <style>
+            body{
+                text-align: center;
+            }
+            button{
+                padding: 15px 25px;
+                background-color: black;
+                color: white;
+                border: 0px;
+                border-radius: 15px;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .main{
+                display: flex;
+                justify-content: center;
+                margin-bottom: 100px;
+            }
+            .row{
+                flex-basis: 500px;
+                border: 1px solid red;
+                float: left;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main" id="main">
+            <div class="row" id="row">1. <b>Lorem ipsum</b> dolor sit amet consectetur, adipisicing elit. Aliquam magni ipsam fugiat, eius aliquid voluptates ipsa dicta? Eius aliquam ipsum deserunt voluptas eum, amet dolorum corporis odio possimus dignissimos sit!</div>
+            <div class="row" id="row1">2. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam magni ipsam fugiat, eius aliquid voluptates ipsa dicta? Eius aliquam ipsum deserunt voluptas eum, amet dolorum corporis odio possimus dignissimos sit!</div>
+        </div>
+
+        <button onclick="getQuerySelectorAllContent()">Click Me !</button>
+    </body>
+    <script>
+        function getContent(){
+            // var row  = document.getElementById('row').innerHTML;
+            // var row1 = document.getElementById('row1').innerHTML;
+
+            // console.log(row);
+
+            // document.getElementById('row1').innerHTML = row;
+            // document.getElementById('row').innerHTML = row1;
+            // 
+            // var output = document.getElementById('main').innerText;
+            // console.log(output);
+            var row  = document.getElementById('row');
+            var row1 = document.getElementById('row1');
+
+            var output = row.innerHTML;
+            var output1 = row1.innerHTML;
+
+            console.log(row);
+
+            row1.innerHTML = output;
+            row.innerHTML = output1;
+        }
+    
+        function getClassContent(){
+            var data = document.getElementsByClassName('row');
+
+            var row1 = data[0].innerHTML;
+            var row2 = data[1].innerHTML;
+
+            data[0].innerHTML = row2;
+            data[1].innerHTML = row1;
+            console.log(data);
+        }
+        
+        function getTagContent(){
+            var data = document.getElementsByTagName('div');
+
+            console.log(data);
+
+            var row1 = data[1].innerHTML;
+            var row2 = data[2].innerHTML;
+
+            data[1].innerHTML = row2;
+            data[2].innerHTML = row1;
+        }
+
+        function getQuerySelectorAllContent(){
+            // var data = document.querySelectorAll('button');
+            var data = document.querySelector('.row');
+
+            console.log(data);
+
+            // var row1 = data[1].innerHTML;
+            // var row2 = data[2].innerHTML;
+
+            // data[1].innerHTML = row2;
+            // data[2].innerHTML = row1;
+        }
+    </script>
+</html>

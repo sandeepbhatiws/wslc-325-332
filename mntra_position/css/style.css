@@ -1,0 +1,157 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+}
+body{
+	font-family: "Roboto", sans-serif;	
+}
+.main{
+	width: 100%;
+}
+.header{
+	width: 100%;
+	background-color: white;
+	box-shadow: 0px 0px 5px 1px gray;
+	padding: 10px 60px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: sticky;
+	top: 0px;
+	position: relative;
+	z-index: 999999;
+}
+.logo img{
+	width: 50px;
+}
+.menu>ul{
+	display: flex;
+	list-style: none;
+}
+.menu>ul>li{
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 15px 20px;
+	color: #282C3F;
+	font-size: 14px;
+}
+
+.submenu{
+	position: absolute;
+	border: 1px solid red;
+	background-color: white;
+	width: 1000px;
+	max-height: 300px;
+	overflow: hidden;
+	overflow-y: scroll;
+	/*opacity: 0;
+	visibility: hidden;*/
+	transition: 2s;
+	top: -400px;
+	display: flex;
+	left: 100px;
+}
+.submenu ul{
+	list-style: none;
+	/*display: inline-block;*/
+	padding: 10px;
+	box-sizing: border-box;
+}
+.submenu ul li{
+	font-size: 16px;
+	font-weight: normal;
+	text-transform: capitalize;
+	line-height: 24px;
+}
+.menu>ul>li:hover .submenu{
+	/*opacity: 1;
+	visibility: visible;*/
+	top: 100%;
+}
+.menu-heading{
+	color: #FC56C1;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.serch-box{
+	background-color: #F5F5F6;
+	/*border: 1px solid gray;*/
+	border-radius: 5px;
+	padding: 10px 15px;
+	flex-basis: 30%;
+	display: flex;
+	align-items: center;
+}
+/*.glass-icon{
+	padding-top: 5px;
+}*/
+.serch-box input{
+	flex-basis: 100%;
+	padding: 5px 10px;
+	border: 0px solid;
+	background-color: #F5F5F6;
+	outline: 0px;
+}
+.header-right{
+	display: flex;
+}
+.header-icons{
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+}
+.header-icons div{
+	font-size: 14px;
+	padding-top: 5px;
+}
+.banner{
+	width: 100%;
+}
+.banner img{
+	width: 100%;
+}
+.outer_medal_worth{
+	width: 100%;
+}
+.medal_worth_heading{
+	padding: 80px 60px;
+	text-transform: uppercase;
+	color: #3E4152;
+}
+.medal_worth{
+	display: flex;
+}
+.medal_worth_image img{
+	width: 100%;
+}
+.outer_shop_category{
+	width: 100%;
+}
+.shop_category{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.shop_category_image{
+	flex-basis: 16.66%;
+	/*flex-grow: 1;*/
+}
+.shop_category_image img{
+	width: 100%;
+}
+.bellicon{
+	background-color: #1D85FC;
+	padding: 13px 15px;
+	float: left;
+	border-radius: 80px;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+}
+.bellicon svg{
+	color: white;
+	font-size: 18px;
+}

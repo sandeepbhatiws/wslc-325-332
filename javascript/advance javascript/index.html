@@ -1,0 +1,52 @@
+<html lang="en" dir="ltr">
+   <head>
+       <title>Title</title>
+   </head>
+   <body>
+           
+   </body>
+   <script>
+
+    const user = {
+        name : 'sandeep',
+        email : 'sandeep@gmail.com',
+        number : 1234567890,
+        job : 'Developer'
+    }
+
+    // displayUser(user);
+
+    function displayUser({ name, email }){
+        console.log(name);
+        console.log(email);
+    }
+
+    var a=[...'jodhpur'];
+    // console.log(a);
+
+    const arr1 = [1, 2, 3];
+    const arr = [4, 5];
+    const arr2 = [...arr, ...arr1];
+    // console.log(arr2); // Output: [4,5,1,2,3]
+
+    var userInfo = {
+        name : 'Rohit',
+        salary : {
+            web : 30000
+        }
+    }
+
+    console.log(userInfo.salary.web);  // 30000
+
+    var userData = {...userInfo };
+
+    console.log(userData.salary.web);  // 30000
+
+    userData.salary.web = 40000;
+
+    console.log(userData.salary.web);    // 40000
+
+    console.log(userInfo.salary.web);  // 40000
+
+   </script>
+</html>

@@ -1,0 +1,30 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px;
+    gap: 15px;
+}
+
+button{
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    gap: 15px;
+}
+
+.form input{
+    padding: 15px;
+}

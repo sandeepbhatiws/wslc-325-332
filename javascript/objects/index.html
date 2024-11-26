@@ -1,0 +1,58 @@
+<html lang="en" dir="ltr">
+   <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <title>Objects</title>
+   </head>
+           
+   <body>
+   </body>
+   <script>
+        var name = 'sumit';
+        var email = 'sumit@gmail.com';
+
+        var userInfo = [['sumit','sumit@gmail.com'],['ravi@gmail.com','ravi']];
+
+
+        var userInfo = {
+            mobile : 1234567890,
+            email : 'sumit@gmail.com',
+            name : 'sumit',
+        }
+
+        var userInfo = [
+            {
+                name : 'sumit',
+                email : 'sumit@gmail.com',
+                mobile_number : 1234567890,
+                subjects : {
+                    maths : 50,
+                    english : 60
+                }
+            },
+            {
+                email : 'ravi@gamil.com',
+                name : 'ravi',
+                mobile_number : 1234567890,
+                grade : 'A'
+            },
+            {
+                email : 'ravi@gamil.com',
+                name : 'ravii',
+                mobile_number : 1234567890,
+                grade : 'A'
+            }
+        ];
+        
+        // for(var i =0; i < userInfo.length; i++){
+        //     console.log(userInfo[i]['name']);
+        // }
+
+        userInfo.forEach((value,index) => {
+            console.log(value['name']);
+            console.log(value['email']);
+        })
+
+    </script>
+</html>

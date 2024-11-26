@@ -1,0 +1,27 @@
+<html lang="en" dir="ltr">
+   <head>
+       <title>Grade Caculator</title>
+   </head>
+           
+   <body></body>
+   <script>
+        var hindi = Number(prompt('Enter hindi marks'));
+        var english = Number(prompt('Enter english marks'));
+        var maths = Number(prompt('Enter maths marks'));
+
+        var total = hindi + english + maths;
+        var percentage = (total /300)*100;  
+
+        if(hindi > 100 || english > 100 || maths > 100){
+            document.write('Invalid marks value');
+        } else if(percentage >= 90 && percentage <= 100){
+            document.write('A Grade');
+        } else if(percentage >= 80 && percentage <= 89){
+            document.write('B Grade');
+        } else {
+            document.write('adult');
+        }
+
+   </script>
+           
+</html>

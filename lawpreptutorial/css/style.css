@@ -1,0 +1,19 @@
+*{
+	text-decoration: none;	
+}
+.header{
+	background-color: #101828;
+}
+.logo img{
+	width: 130px;
+}
+.signin{
+	background: #ED1B23;
+}
+
+.signin:hover{
+	background: #ED1B23;
+}
+.faq-bg{
+	background-color: #F1F1F1;
+}

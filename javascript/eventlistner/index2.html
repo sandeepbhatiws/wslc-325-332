@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <title>Title</title>
+   </head>
+           
+   <body>
+        <button class="test" value="1" id="submit">Submit</button>
+        <button class="test" value="2" id="clickme" title="Click">Click Me</button>
+        <button class="test" value="3" id="submit">Submit</button>
+        <button class="test" value="4" id="clickme" title="Click">Click Me</button>
+   </body>
+    
+   <script>
+
+        var data = document.querySelectorAll('.test');
+        
+        data.forEach((element,index) => {
+            element.addEventListener('click', (event) => {
+                console.log(event.target.value);
+            })
+        });
+        
+
+   </script>
+</html>
