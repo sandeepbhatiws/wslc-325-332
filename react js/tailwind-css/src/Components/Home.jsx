@@ -11,8 +11,8 @@ export default function Home() {
         <Header/>
         <Menu/>
         <Banner/>
-        <BestSellingProducts title="Best Selling Products"/>
-        <BestSellingProducts title="Top Rated Products"/>
+        <BestSellingProducts title="Best Selling Products" type="1"/>
+        <BestSellingProducts title="Top Rated Products" type="2"/>
     </>
   )
 }

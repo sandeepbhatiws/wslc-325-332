@@ -1,6 +1,6 @@
 import BannerImage from '../assets/images/bannner.jpg'
 
-const links = [
+  const links = [
     { name: 'Open roles', href: '#' },
     { name: 'Internship program', href: '#' },
     { name: 'Our values', href: '#' },
