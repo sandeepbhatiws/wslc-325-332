@@ -20,11 +20,14 @@ import LeftSideCategoryFilter from './leftSideCategoryFilter'
 import RightSideCategoryFilter from './rightSideCategoryFilter'
 
 const sortOptions = [
-  { name: 'Most Popular', href: '#', current: true },
-  { name: 'Best Rating', href: '#', current: false },
-  { name: 'Newest', href: '#', current: false },
-  { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
+  { name: 'Name: A-Z', id: '1', current: true },
+  { name: 'Name: Z-A', href: '2', current: false },
+  { name: 'Price: Low to High', href: '3', current: false },
+  { name: 'Price: High to Low', href: '4', current: false },
+  { name: 'Discounted Price: Low to High', href: '5', current: false },
+  { name: 'Discounted Price: High to Low', href: '6', current: false },
+  { name: 'Rating: Low to High', href: '7', current: false },
+  { name: 'Rating: High to Low', href: '8', current: false },
 ]
 const subCategories = [
   { name: 'Totes', href: '#' },
@@ -241,10 +244,9 @@ export default function CategoryFilter() {
               Products
             </h2>
 
-            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-2">
               {/* Filters */}
                 <LeftSideCategoryFilter/>
-
               {/* Product grid */}
                 <RightSideCategoryFilter/>
               
