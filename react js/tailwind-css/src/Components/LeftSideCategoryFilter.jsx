@@ -60,7 +60,7 @@ const subCategories = [
     },
   ]
 
-export default function LeftSideCategoryFilter() {
+export default function LeftSideCategoryFilter({filterCategories, setFilterCategories}) {
 
     const [categories, setCategories] = useState([]);
     const [brands, setBrands] = useState([]);
@@ -83,6 +83,11 @@ export default function LeftSideCategoryFilter() {
       })
   },[]);
 
+  const filterCategory = (category_slug) => {
+    console.log(category_slug);
+    setFilterCategories(category_slug);
+  }
+
   return (
     <>
       <form className="hidden lg:block">
@@ -103,6 +108,7 @@ export default function LeftSideCategoryFilter() {
                       <div className="flex h-5 shrink-0 items-center">
                           <div className="group grid size-4 grid-cols-1">
                           <input
+                                onClick={() => filterCategory(value.slug) }
                               defaultValue=""
                               defaultChecked=""
                               id={`filter-${value.id}`}

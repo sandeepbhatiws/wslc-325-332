@@ -21,13 +21,13 @@ import RightSideCategoryFilter from './rightSideCategoryFilter'
 
 const sortOptions = [
   { name: 'Name: A-Z', id: '1', current: true },
-  { name: 'Name: Z-A', href: '2', current: false },
-  { name: 'Price: Low to High', href: '3', current: false },
-  { name: 'Price: High to Low', href: '4', current: false },
-  { name: 'Discounted Price: Low to High', href: '5', current: false },
-  { name: 'Discounted Price: High to Low', href: '6', current: false },
-  { name: 'Rating: Low to High', href: '7', current: false },
-  { name: 'Rating: High to Low', href: '8', current: false },
+  { name: 'Name: Z-A', id: '2', current: false },
+  { name: 'Price: Low to High', id: '3', current: false },
+  { name: 'Price: High to Low', id: '4', current: false },
+  { name: 'Discounted Price: Low to High', id: '5', current: false },
+  { name: 'Discounted Price: High to Low', id: '6', current: false },
+  { name: 'Rating: Low to High', id: '7', current: false },
+  { name: 'Rating: High to Low', id: '8', current: false },
 ]
 const subCategories = [
   { name: 'Totes', href: '#' },
@@ -81,6 +81,13 @@ function classNames(...classes) {
 export default function CategoryFilter() {
 
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+
+    const [sorting, setSorting] = useState(3);
+    const [filterCategories, setFilterCategories] = useState([]);
+
+    const filterSorting = (value) => {
+      setSorting(value);
+    }
     
   return (
      <>
@@ -213,7 +220,7 @@ export default function CategoryFilter() {
                     {sortOptions.map((option) => (
                       <MenuItem key={option.name}>
                         <a
-                          href={option.href}
+                          onClick={ () => filterSorting(option.id) }
                           className={classNames(
                             option.current ? 'font-medium text-gray-900' : 'text-gray-500',
                             'block px-4 py-2 text-sm data-[focus]:bg-gray-100 data-[focus]:outline-none',
@@ -244,11 +251,11 @@ export default function CategoryFilter() {
               Products
             </h2>
 
-            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
-                <LeftSideCategoryFilter/>
+                <LeftSideCategoryFilter filterCategories={filterCategories} setFilterCategories ={setFilterCategories}/>
               {/* Product grid */}
-                <RightSideCategoryFilter/>
+                <RightSideCategoryFilter sorting={sorting} filterCategories={filterCategories}/>
               
             </div>
           </section>
