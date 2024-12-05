@@ -60,7 +60,7 @@ const subCategories = [
     },
   ]
 
-export default function LeftSideCategoryFilter({filterCategories, setFilterCategories}) {
+export default function LeftSideCategoryFilter({filterCategories, setFilterCategories, filterPriceFrom, setFilterPriceFrom, filterPriceTo, setFilterPriceTo}) {
 
     const [categories, setCategories] = useState([]);
     const [brands, setBrands] = useState([]);
@@ -84,8 +84,27 @@ export default function LeftSideCategoryFilter({filterCategories, setFilterCateg
   },[]);
 
   const filterCategory = (category_slug) => {
-    console.log(category_slug);
-    setFilterCategories(category_slug);
+
+    if(filterCategories.includes(category_slug)){
+        filterCategories = filterCategories.filter((value) => {
+            if(value != category_slug){
+                return value;
+            }
+        })
+    } else {
+        filterCategories.push(category_slug);
+    }
+
+    const finalData = [...filterCategories];
+
+    
+    console.log(filterCategories);
+    setFilterCategories(finalData);
+  }
+
+  const priceFilter = (from,to) => {
+    setFilterPriceFrom(from)
+    setFilterPriceTo(to);
   }
 
   return (
@@ -214,195 +233,31 @@ export default function LeftSideCategoryFilter({filterCategories, setFilterCateg
               </h3>
               <DisclosurePanel className="pt-6">
                   <div className="space-y-4">
-                      <div className="flex gap-3">
-                      <div className="flex h-5 shrink-0 items-center">
-                          <div className="group grid size-4 grid-cols-1">
-                          <input
-                              defaultValue=""
-                              defaultChecked=""
-                              id="0-250"
-                              name=""
-                              type="checkbox"
-                              className="col-start-1 row-start-1 appearance-none rounded border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
-                          />
-                          <svg
-                              fill="none"
-                              viewBox="0 0 14 14"
-                              className="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-[:disabled]:stroke-gray-950/25"
-                          >
-                              <path
-                              d="M3 8L6 11L11 3.5"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-[:checked]:opacity-100"
-                              />
-                              <path
-                              d="M3 7H11"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-[:indeterminate]:opacity-100"
-                              />
-                          </svg>
-                          </div>
-                      </div>
-                      <label htmlFor="0-250" className="text-sm text-gray-600">
-                          Rs. 0 to Rs. 250
-                      </label>
-                      </div>
-
-                      <div className="flex gap-3">
-                      <div className="flex h-5 shrink-0 items-center">
-                          <div className="group grid size-4 grid-cols-1">
-                          <input
-                              defaultValue=""
-                              defaultChecked=""
-                              id="251-500"
-                              name=""
-                              type="checkbox"
-                              className="col-start-1 row-start-1 appearance-none rounded border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
-                          />
-                          <svg
-                              fill="none"
-                              viewBox="0 0 14 14"
-                              className="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-[:disabled]:stroke-gray-950/25"
-                          >
-                              <path
-                              d="M3 8L6 11L11 3.5"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-[:checked]:opacity-100"
-                              />
-                              <path
-                              d="M3 7H11"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-[:indeterminate]:opacity-100"
-                              />
-                          </svg>
-                          </div>
-                      </div>
-                      <label htmlFor="251-500" className="text-sm text-gray-600">
-                          Rs. 251 to Rs. 500
-                      </label>
-                      </div>
-
-                      <div className="flex gap-3">
-                      <div className="flex h-5 shrink-0 items-center">
-                          <div className="group grid size-4 grid-cols-1">
-                          <input
-                              defaultValue=""
-                              defaultChecked=""
-                              id="501-750"
-                              name=""
-                              type="checkbox"
-                              className="col-start-1 row-start-1 appearance-none rounded border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
-                          />
-                          <svg
-                              fill="none"
-                              viewBox="0 0 14 14"
-                              className="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-[:disabled]:stroke-gray-950/25"
-                          >
-                              <path
-                              d="M3 8L6 11L11 3.5"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-[:checked]:opacity-100"
-                              />
-                              <path
-                              d="M3 7H11"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-[:indeterminate]:opacity-100"
-                              />
-                          </svg>
-                          </div>
-                      </div>
-                      <label htmlFor="501-750" className="text-sm text-gray-600">
-                          Rs. 501 to Rs. 750
-                      </label>
-                      </div>
-
-                      <div className="flex gap-3">
-                      <div className="flex h-5 shrink-0 items-center">
-                          <div className="group grid size-4 grid-cols-1">
-                          <input
-                              defaultValue=""
-                              defaultChecked=""
-                              id="751-1000"
-                              name=""
-                              type="checkbox"
-                              className="col-start-1 row-start-1 appearance-none rounded border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
-                          />
-                          <svg
-                              fill="none"
-                              viewBox="0 0 14 14"
-                              className="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-[:disabled]:stroke-gray-950/25"
-                          >
-                              <path
-                              d="M3 8L6 11L11 3.5"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-[:checked]:opacity-100"
-                              />
-                              <path
-                              d="M3 7H11"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-[:indeterminate]:opacity-100"
-                              />
-                          </svg>
-                          </div>
-                      </div>
-                      <label htmlFor="751-1000" className="text-sm text-gray-600">
-                          Rs. 751 to Rs. 1000
-                      </label>
-                      </div>
-
-                      <div className="flex gap-3">
-                      <div className="flex h-5 shrink-0 items-center">
-                          <div className="group grid size-4 grid-cols-1">
-                          <input
-                              defaultValue=""
-                              defaultChecked=""
-                              id="1000"
-                              name=""
-                              type="checkbox"
-                              className="col-start-1 row-start-1 appearance-none rounded border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
-                          />
-                          <svg
-                              fill="none"
-                              viewBox="0 0 14 14"
-                              className="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-[:disabled]:stroke-gray-950/25"
-                          >
-                              <path
-                              d="M3 8L6 11L11 3.5"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-[:checked]:opacity-100"
-                              />
-                              <path
-                              d="M3 7H11"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-[:indeterminate]:opacity-100"
-                              />
-                          </svg>
-                          </div>
-                      </div>
-                      <label htmlFor="1000" className="text-sm text-gray-600">
-                          Rs. 1001 and above
-                      </label>
-                      </div>
+                    <div class="flex items-center gap-x-3" onClick={ () => priceFilter(0,250) }>
+                        <input id="0-250" name="push-notifications" type="radio"  class="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden" />
+                        
+                        <label for="0-250" class="block text-sm/6 font-medium text-gray-900">Rs. 0 to Rs. 250</label>
+                    </div>
+                    <div class="flex items-center gap-x-3" onClick={ () => priceFilter(251,500) }>
+                        <input id="251-500" name="push-notifications" type="radio"  class="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden" />
+                        
+                        <label for="251-500" class="block text-sm/6 font-medium text-gray-900">Rs. 251 to Rs. 500</label>
+                    </div>
+                    <div class="flex items-center gap-x-3" onClick={ () => priceFilter(501,750) }>
+                        <input id="501-750" name="push-notifications" type="radio"  class="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden" />
+                        
+                        <label for="501-750" class="block text-sm/6 font-medium text-gray-900">Rs. 501 to Rs. 750</label>
+                    </div>
+                    <div class="flex items-center gap-x-3" onClick={ () => priceFilter(751,1000) }>
+                        <input id="751-1000" name="push-notifications" type="radio" class="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden" />
+                        
+                        <label for="751-1000" class="block text-sm/6 font-medium text-gray-900">Rs. 751 to Rs. 1000</label>
+                    </div>
+                    <div class="flex items-center gap-x-3" onClick={ () => priceFilter(1001) }>
+                        <input id="1001" name="push-notifications" type="radio" class="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden" />
+                        
+                        <label for="1001" class="block text-sm/6 font-medium text-gray-900">Rs. 1001 and above</label>
+                    </div>
                   </div>
               </DisclosurePanel>
             </Disclosure>

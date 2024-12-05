@@ -84,6 +84,8 @@ export default function CategoryFilter() {
 
     const [sorting, setSorting] = useState(3);
     const [filterCategories, setFilterCategories] = useState([]);
+    const [filterPriceFrom, setFilterPriceFrom] = useState('');
+    const [filterPriceTo, setFilterPriceTo] = useState('');
 
     const filterSorting = (value) => {
       setSorting(value);
@@ -253,9 +255,9 @@ export default function CategoryFilter() {
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
-                <LeftSideCategoryFilter filterCategories={filterCategories} setFilterCategories ={setFilterCategories}/>
+                <LeftSideCategoryFilter filterCategories={filterCategories} setFilterCategories ={setFilterCategories}   filterPriceFrom = {filterPriceFrom} setFilterPriceFrom = {setFilterPriceFrom} filterPriceTo = {filterPriceTo} setFilterPriceTo = {setFilterPriceTo}/>
               {/* Product grid */}
-                <RightSideCategoryFilter sorting={sorting} filterCategories={filterCategories}/>
+                <RightSideCategoryFilter sorting={sorting} filterCategories={filterCategories} filterPriceFrom = {filterPriceFrom} setFilterPriceFrom = {setFilterPriceFrom} filterPriceTo = {filterPriceTo} setFilterPriceTo = {setFilterPriceTo}/>
               
             </div>
           </section>
