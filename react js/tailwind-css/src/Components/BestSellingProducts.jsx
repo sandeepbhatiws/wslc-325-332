@@ -7,9 +7,9 @@ import axios from 'axios';
     const [products, setProducts] = useState([]);
 
     const getProducts = async () => {
-      var products = await fetch('https://dummyjson.com/products?limit=12');
+      var products = await fetch('https://wscubetech.co/ecommerce-api/products.php?limit=12');
       var products = await products.json();
-      setProducts(products.products);
+      setProducts(products.data);
     }
 
     useEffect(() => {
