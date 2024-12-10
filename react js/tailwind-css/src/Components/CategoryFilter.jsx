@@ -93,8 +93,6 @@ export default function CategoryFilter() {
     
   return (
      <>
-      <Header/>
-      <Navbar/>
       <div>
       <div className="bg-white">
       <div>

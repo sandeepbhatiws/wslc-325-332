@@ -8,8 +8,6 @@ export default function Home() {
 
   return (
     <>
-        <Header/>
-        <Menu/>
         <Banner/>
         <BestSellingProducts title="Best Selling Products" type="1"/>
         <BestSellingProducts title="Top Rated Products" type="2"/>
