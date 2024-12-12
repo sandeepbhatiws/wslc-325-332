@@ -23,6 +23,7 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom'
 import { context } from '../ContextAPI/Context'
+import ShoppingCart from './ShoppingCart'
 
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -39,8 +40,14 @@ const callsToAction = [
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const [open, setOpen] = useState(false)
+
   let { cartItems } = useContext(context);
- 
+
+  const cartMenu = () => {
+    setOpen(!open);
+  }
+  
   return (
     <header className="bg-white sticky z-10 top-0 shadow">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
@@ -78,8 +85,8 @@ export default function Navbar() {
             Products
           </Link>
         </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a className="pointer-events-auto ml-8 rounded-md bg-indigo-600 px-3 py-2 text-[0.8125rem]/5 font-semibold text-white hover:bg-indigo-500">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end" onClick={ cartMenu }>
+          <a className="cursor-pointer pointer-events-auto ml-8 rounded-md bg-indigo-600 px-3 py-2 text-[0.8125rem]/5 font-semibold text-white hover:bg-indigo-500">
             View Cart ({cartItems.length})
           </a>
         </div>
@@ -145,6 +152,9 @@ export default function Navbar() {
           </div>
         </DialogPanel>
       </Dialog>
+
+
+      <ShoppingCart open = {open} setOpen= {setOpen}/>
     </header>
   )
 }

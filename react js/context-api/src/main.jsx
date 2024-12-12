@@ -9,6 +9,7 @@ import AboutUs from "./Components/AboutUs";
 import RootLayout from "./Components/RootLayout";
 import ProductDetails from "./Components/ProductDetails";
 import Context from "./ContextAPI/Context";
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = document.getElementById("root");
 
