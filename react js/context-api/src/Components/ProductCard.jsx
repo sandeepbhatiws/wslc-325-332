@@ -40,7 +40,7 @@ export default function ProductCard({product}) {
 
             console.log(checkCart);
 
-            var input = [...cartItems];
+            var input = [...checkCart];
             setCartItems(input);
             localStorage.setItem('cartItems',JSON.stringify(input));
             toast.success('Cart update Succesfully !!');

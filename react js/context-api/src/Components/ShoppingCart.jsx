@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { context } from '../ContextAPI/Context'
@@ -6,7 +6,25 @@ import { Link } from 'react-router-dom';
 
 export default function ShoppingCart({open, setOpen}) {
 
-    let {cartItems} = useContext(context);
+  var [totalAmount, setTotalAmount] = useState(0);
+
+    let {cartItems, setCartItems} = useContext(context);
+
+    useEffect(() => {
+      var sum = 0;
+      cartItems.forEach((v) => {
+        sum += v.price*v.qty;
+      })
+
+      setTotalAmount(sum);
+    },[cartItems])
+
+    const removeCart = (index) => {
+      cartItems.slice(1,index);
+
+      // setCartItems([...output]);
+      console.log(cartItems);
+    }
 
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-10">
@@ -42,7 +60,7 @@ export default function ShoppingCart({open, setOpen}) {
                   <div className="mt-8">
                     <div className="flow-root">
                       <ul role="list" className="-my-6 divide-y divide-gray-200">
-                        {cartItems.map((cart) => (
+                        {cartItems.map((cart, index) => (
                           <li key={cart.id} className="flex py-6">
                             <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
                               <img alt={cart.name} src={cart.image} className="size-full object-cover" />
@@ -61,7 +79,7 @@ export default function ShoppingCart({open, setOpen}) {
                                 <p className="text-gray-500">Qty {cart.qty}</p>
 
                                 <div className="flex">
-                                  <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                  <button type="button" onClick={ () => removeCart(index) } className="font-medium text-indigo-600 hover:text-indigo-500">
                                     Remove
                                   </button>
                                 </div>
@@ -77,7 +95,7 @@ export default function ShoppingCart({open, setOpen}) {
                 <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                   <div className="flex justify-between text-base font-medium text-gray-900">
                     <p>Subtotal</p>
-                    <p>$262.00</p>
+                    <p>${ totalAmount.toFixed(2) }</p>
                   </div>
                   <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                   <div className="mt-6">
