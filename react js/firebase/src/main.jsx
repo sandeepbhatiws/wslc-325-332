@@ -5,6 +5,8 @@ import './index.css'
 import 'react-toastify/dist/ReactToastify.css';
 import Home from './Components/Home.jsx';
 import RootLayout from './Components/RootLayout.jsx';
+import AddQuiz from './Components/AddQuiz.jsx';
+import ViewQuiz from './Components/ViewQuiz.jsx';
 
 
 const root = document.getElementById("root");
@@ -15,6 +17,8 @@ ReactDOM.createRoot(root).render(
     <Routes>
       <Route element={ <RootLayout/> }>
         <Route path="/" element={<Home />} />
+        <Route path="add-quiz" element={<AddQuiz />} />
+        <Route path="view-quiz" element={<ViewQuiz />} />
       </Route>
       
     </Routes>

@@ -3,6 +3,7 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { context } from '../ContextAPI/Context'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function ShoppingCart({open, setOpen}) {
 
@@ -20,10 +21,13 @@ export default function ShoppingCart({open, setOpen}) {
     },[cartItems])
 
     const removeCart = (index) => {
-      cartItems.slice(1,index);
-
-      // setCartItems([...output]);
-      console.log(cartItems);
+      if(confirm('Are you sure you want to delete ?')){
+        cartItems.splice(index,1);
+        console.log(cartItems);
+        setCartItems([...cartItems]);
+        localStorage.setItem('cartItems',JSON.stringify(cartItems));
+        toast.success('Product remove from cart Succesfully !!');
+      }
     }
 
   return (
