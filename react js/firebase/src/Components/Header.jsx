@@ -10,7 +10,9 @@ export default function Header() {
                     <img src="https://www.wscubetech.com/images/wscube-tech-logo-2.svg" className="mr-3" alt="Flowbite React Logo" />
                 </NavbarBrand>
                 <div className="flex md:order-2">
-                    <Button>Login</Button>
+                    <Link to="/login">
+                        <Button>Login</Button>
+                    </Link>
                     <NavbarToggle />
                 </div>
                 <NavbarCollapse>

@@ -12,6 +12,10 @@ import {
     ToggleSwitch,
   } from "flowbite-react";
 
+  import { getDatabase, ref, set } from "firebase/database";
+import app from '../config/firebase';
+import { toast } from 'react-toastify';
+
 export default function AddQuiz() {
 
     const submitHandler = (event) => {
@@ -26,12 +30,17 @@ export default function AddQuiz() {
             answer : event.target.answer.value,
         }
 
-        console.log(formData);
+        const db = getDatabase(app);
+        set(ref(db, 'quizzes/'+Date.now()), formData);
+
+        toast.success('Quiz added successfully !!');
+
+        event.target.reset();
     }
 
   return (
         <>
-            <form onSubmit={ submitHandler } className="flex max-w-md m-auto flex-col gap-4" autoComplete='off'>
+            <form onSubmit={ submitHandler } className="flex max-w-[1200px] m-auto flex-col p-8 gap-4" autoComplete='off'>
                 <div>
                     <div className="mb-2 block">
                     <Label htmlFor="question" value="Question" />
