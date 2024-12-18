@@ -8,6 +8,7 @@ import RootLayout from './Components/RootLayout.jsx';
 import AddQuiz from './Components/AddQuiz.jsx';
 import ViewQuiz from './Components/ViewQuiz.jsx';
 import Login from './Components/Login.jsx';
+import Register from './Components/Register.jsx';
 
 
 const root = document.getElementById("root");
@@ -21,6 +22,7 @@ ReactDOM.createRoot(root).render(
         <Route path="add-quiz" element={<AddQuiz />} />
         <Route path="view-quiz" element={<ViewQuiz />} />
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Route>
       
     </Routes>

@@ -1,36 +1,35 @@
 import React from 'react'
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { toast } from 'react-toastify';
 
-export default function Login() {
+export default function Register() {
 
-    const login = (e) => {
+    const register = (e) => {
         e.preventDefault();
 
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, e.target.email.value, e.target.password.value)
+        createUserWithEmailAndPassword(auth, e.target.email.value, e.target.password.value)
         .then((userCredential) => {
-            // Signed in 
+            // Signed up 
             const user = userCredential.user;
             // ...
-            // console.log(user);
             localStorage.setItem('firebaseUser',JSON.stringify(user));
-            toast.success('Login Successfully !!');
+            toast.success('Register Successfully !!');
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             toast.error(errorMessage);
+            // ..
         });
 
 
         e.target.reset();
     }
-
     return (
         <>
-            <form onSubmit={login} autoComplete='off' className="flex max-w-md p-8 m-auto flex-col gap-4">
+            <form onSubmit={register} autoComplete='off' className="flex max-w-md p-8 m-auto flex-col gap-4">
                 <div>
                     <div className="mb-2 block">
                         <Label htmlFor="email1" value="Your email" />
