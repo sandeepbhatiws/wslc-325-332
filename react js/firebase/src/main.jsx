@@ -9,23 +9,24 @@ import AddQuiz from './Components/AddQuiz.jsx';
 import ViewQuiz from './Components/ViewQuiz.jsx';
 import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
+import Context from './ContextAPI/Context.jsx';
 
 
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
   <BrowserRouter>
-
-    <Routes>
-      <Route element={ <RootLayout/> }>
-        <Route path="/" element={<Home />} />
-        <Route path="add-quiz" element={<AddQuiz />} />
-        <Route path="view-quiz" element={<ViewQuiz />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-      </Route>
-      
-    </Routes>
+    <Context>
+      <Routes>
+        <Route element={ <RootLayout/> }>
+          <Route path="/" element={<Home />} />
+          <Route path="add-quiz" element={<AddQuiz />} />
+          <Route path="view-quiz" element={<ViewQuiz />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+      </Routes>
+    </Context>
 
   </BrowserRouter>
 );

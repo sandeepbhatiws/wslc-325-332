@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { toast } from 'react-toastify';
+import { context } from '../ContextAPI/Context';
+import { useNavigate } from 'react-router';
 
 export default function Register() {
+
+    var {isLogin, setLogin} = useContext(context);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(isLogin){
+            navigate('/');
+        }
+    },[isLogin]);
 
     const register = (e) => {
         e.preventDefault();
@@ -16,6 +28,7 @@ export default function Register() {
             // ...
             localStorage.setItem('firebaseUser',JSON.stringify(user));
             toast.success('Register Successfully !!');
+            setLogin(true);
         })
         .catch((error) => {
             const errorCode = error.code;

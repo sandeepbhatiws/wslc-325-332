@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
 import { Link } from 'react-router';
 import { Avatar, Dropdown } from "flowbite-react";
+import { context } from '../ContextAPI/Context';
 
 export default function Header() {
 
-    var checkLogin = JSON.parse(localStorage.getItem('firebaseUser'));
-    var checkLogin = checkLogin ? true : false;
-
-    const [isLogin, setLogin] = useState(checkLogin);
+    var {isLogin, setLogin} = useContext(context);
 
     const logout = () => {
         localStorage.removeItem('firebaseUser');
