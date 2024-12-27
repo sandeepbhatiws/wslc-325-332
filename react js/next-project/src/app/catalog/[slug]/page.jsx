@@ -7,8 +7,6 @@ export default function page() {
 
   const params = useParams();
 
-  // console.log(param);
-
   return (
     <div>
       { params.slug }
