@@ -11,7 +11,7 @@ export default function page() {
     useEffect(() => {
         axios.get(`https://wscubetech.co/ecommerce-api/productdetails.php?id=166`)
         .then((success) => {
-            setProductDetails(success.data.data);
+            setProductDetails(success.data.product);
         })
         .catch((error) => {
             toast.error('Something went wrong');

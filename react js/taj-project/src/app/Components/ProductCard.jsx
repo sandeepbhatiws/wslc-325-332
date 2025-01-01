@@ -1,7 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
+import { toast } from 'react-toastify';
 
 export default function ProductCard({ product }) {
+
+    const [cartItems, setCartItems] = useState([]);
+
+    const addToCart = (value) => {
+
+        var checkProduct = cartItems.filter((v) => {
+            if(v.id === value.id){
+                return v;
+            }
+        });
+
+        console.log(cartItems);
+
+        if(checkProduct.length == 0 ){
+            var productInfo = {
+                id: value.id,
+                name: value.name,
+                price: value.price,
+                image: value.image,
+                quantity: 1
+            }
+
+            var data = [productInfo,...cartItems];
+
+            
+            setCartItems(data);
+            console.log(data);
+            localStorage.setItem('cartItems', JSON.stringify(data));
+            toast.success('Product added to cart');
+
+            
+        } else {
+            var data = cartItems.map((v) => {
+                if(v.id === value.id){
+                    v.quantity = v.quantity + 1;
+                }
+                return v;
+            });
+
+            setCartItems(data);
+            localStorage.setItem('cartItems', JSON.stringify(data));
+            toast.success('Product added to cart');
+        }
+
+    };
+
   return (
     <div class="flex flex-col">
         <div class="relative flex">
@@ -133,7 +180,7 @@ export default function ProductCard({ product }) {
             </div>
 
             <div>
-                <button class="my-5 h-10 w-full bg-violet-900 text-white">
+                <button onClick={ () => addToCart(product) } class="my-5 h-10 w-full bg-violet-900 text-white">
                     Add to cart
                 </button>
             </div>

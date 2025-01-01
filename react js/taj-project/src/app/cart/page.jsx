@@ -1,7 +1,12 @@
+"use client";
 import Link from 'next/link'
 import React from 'react'
 
 export default function page() {
+
+    // var cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    // var cartItems = cartItems ? cartItems : [];
+
     return (
         <>
             <nav class="mx-auto w-full mt-4 max-w-[1200px] px-5">
@@ -27,7 +32,7 @@ export default function page() {
                         <span class="mx-2 text-gray-500">&gt;</span>
                     </li>
 
-                    <li class="text-gray-500">Cart</li>
+                    <li class="text-gray-500">Cart ({ cartItems.length })</li>
                 </ul>
             </nav>
 
