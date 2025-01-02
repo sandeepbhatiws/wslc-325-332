@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { toast } from 'react-toastify';
 
-export default function ProductCard({ product }) {
-
-    const [cartItems, setCartItems] = useState([]);
+export default function ProductCard({ product, cartItems, setCartItems }) {
 
     const addToCart = (value) => {
 
@@ -13,8 +11,6 @@ export default function ProductCard({ product }) {
                 return v;
             }
         });
-
-        console.log(cartItems);
 
         if(checkProduct.length == 0 ){
             var productInfo = {
@@ -26,10 +22,8 @@ export default function ProductCard({ product }) {
             }
 
             var data = [productInfo,...cartItems];
-
             
             setCartItems(data);
-            console.log(data);
             localStorage.setItem('cartItems', JSON.stringify(data));
             toast.success('Product added to cart');
 

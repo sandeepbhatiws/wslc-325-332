@@ -12,6 +12,8 @@ export default function RightSideCatlog() {
     const [products, setProducts] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
+    const [cartItems, setCartItems] = useState([]);
+
     useEffect(() => {
         axios.get('https://wscubetech.co/ecommerce-api/products.php',{
             params: {
@@ -49,7 +51,7 @@ export default function RightSideCatlog() {
                 
                 products.map((v,i) => {
                     return (
-                        <ProductCard key={ i } product={v}/>
+                        <ProductCard key={ i } product={v} cartItems={cartItems} setCartItems={setCartItems}/>
                     );
                 })
             
