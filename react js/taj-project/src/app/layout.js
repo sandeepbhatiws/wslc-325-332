@@ -1,5 +1,7 @@
 import MainLayout from "./Components/MainLayout";
 import './../../public/css/tailwind-ecommerce.css';
+import { Provider } from "react-redux";
+import { store } from "./Store/StoreConfig";
 
 export const metadata = {
   title: "MayBell - Online furniture store",
@@ -10,9 +12,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <MainLayout>
-        {children}
-        </MainLayout>
+        <Provider store={store}>
+          <MainLayout>
+          {children}
+          </MainLayout>
+        </Provider>
+        
       </body>
     </html>
   );
