@@ -1,16 +1,14 @@
 "use client";
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { removeItem, updateCartMinus, updateCartPlus } from '../Store/CartSlice';
 
 export default function page() {
-    // Check if localStorage is available
-    // if (typeof window !== 'undefined') {
-    //     var cartItem = JSON.parse(localStorage.getItem('cartItems'));
-    //     var cartItem = cartItem ? cartItem : [];
-    //     const [cartItems, setCartItems] = useState(cartItem);
-    // }
 
-    let [cartItems, setCartItems]=useState(typeof window !== "undefined" ? JSON.parse(localStorage.getItem("cartItems")) : null)
+    var cartItems = useSelector((cartData) => {
+        return cartData.cart.cartItems
+    })
 
     var [totalAmout, setTotalAmount] = useState(0);
 
@@ -23,36 +21,7 @@ export default function page() {
         setTotalAmount(total);
     },[cartItems]);
 
-    const removeItem = (id) => {
-        if(confirm('Are you sure you want to remove this item?')){
-            var data = cartItems.filter((v) => {
-                if(v.id !== id){
-                    return v;
-                }
-            });
-
-            setCartItems(data);
-            localStorage.setItem('cartItems', JSON.stringify(data));
-        }
-    }
-
-    const updateCart = (id, type) => {
-        var data = cartItems.map((v) => {
-            if(v.id === id){
-                if(type === 'plus'){
-                    v.quantity = v.quantity + 1;
-                } else {
-                    if(v.quantity > 1){
-                        v.quantity = v.quantity - 1;
-                    }
-                }
-            }
-            return v;
-        });
-
-        setCartItems(data);
-        localStorage.setItem('cartItems', JSON.stringify(data));
-    }
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -359,7 +328,7 @@ export default function page() {
                                             <td class="mx-auto text-center">&#36;{v.price}</td>
                                             <td class="align-middle">
                                                 <div class="flex items-center justify-center">
-                                                    <button onClick={ () => {updateCart(v.id, 'less')} }
+                                                    <button onClick={ () => dispatch(updateCartMinus(v.id)) }
                                                         class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500"
                                                     >
                                                         &minus;
@@ -369,7 +338,7 @@ export default function page() {
                                                     >
                                                         {v.quantity}
                                                     </div>
-                                                    <button onClick={ () => {updateCart(v.id, 'plus')} }
+                                                    <button onClick={ () => dispatch(updateCartPlus(v.id)) }
                                                         class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500"
                                                     >
                                                         &#43;
@@ -378,7 +347,7 @@ export default function page() {
                                             </td>
                                             <td class="mx-auto text-center">&#36;{v.quantity * v.price}</td>
                                             <td class="align-middle">
-                                                <svg onClick={() => {removeItem(v.id)}}
+                                                <svg onClick={() => dispatch(removeItem(v.id)) }
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 20 20"
                                                     fill="currentColor"
